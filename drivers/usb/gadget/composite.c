@@ -2528,18 +2528,7 @@ void composite_resume(struct usb_gadget *gadget)
 				f->resume(f);
 		}
 
-<<<<<<< HEAD
 		usb_gadget_vbus_draw(gadget, USB_VBUS_DRAW(gadget->speed));
-=======
-		maxpower = cdev->config->MaxPower ?
-			cdev->config->MaxPower : CONFIG_USB_GADGET_VBUS_DRAW;
-		if (gadget->speed < USB_SPEED_SUPER)
-			maxpower = min(maxpower, 500U);
-		else
-			maxpower = min(maxpower, 900U);
-
-		usb_gadget_vbus_draw(gadget, maxpower);
->>>>>>> 19c646f01e4ace1e5e5b3de2749de25bc86b79a1
 	}
 
 	spin_unlock_irqrestore(&cdev->lock, flags);
